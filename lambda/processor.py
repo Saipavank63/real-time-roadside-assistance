@@ -41,3 +41,19 @@ def lambda_handler(event, context):
         'statusCode': 200,
         'body': json.dumps('Event processed')
     }
+
+
+s3 = boto3.client('s3')
+raw_bucket = os.environ.get('RAW_DATA_BUCKET')
+
+# Inside lambda_handler loop:
+try:
+    # Save raw payload
+    s3.put_object(
+        Bucket=raw_bucket,
+        Key=f"raw-events/{uuid.uuid4()}.json",
+        Body=decoded_data,
+        ContentType='application/json'
+    )
+except ClientError as s3_error:
+    logger.error(f"Failed to write raw event to S3: {s3_error}")

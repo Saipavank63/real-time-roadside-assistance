@@ -27,8 +27,10 @@ resource "aws_lambda_function" "kinesis_processor" {
   role          = aws_iam_role.lambda_exec.arn
 
   environment {
-    variables = {
-      DYNAMODB_TABLE = aws_dynamodb_table.roadside_events.name
+  variables = {
+    DYNAMODB_TABLE  = aws_dynamodb_table.roadside_events.name
+    RAW_DATA_BUCKET = aws_s3_bucket.roadside_archive.bucket
+  
     }
   }
 }
