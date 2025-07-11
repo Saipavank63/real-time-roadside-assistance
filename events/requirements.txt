@@ -1,0 +1,8 @@
+boto3
+aws-lambda-powertools
+aws-xray-sdk
+pydantic
+requests
+python-json-logger
+pytest
+moto
