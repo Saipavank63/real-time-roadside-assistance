@@ -1,0 +1,28 @@
+{
+  "Records": [
+    {
+      "eventID": "1",
+      "eventName": "INSERT",
+      "eventVersion": "1.0",
+      "eventSource": "aws:dynamodb",
+      "awsRegion": "us-west-2",
+      "dynamodb": {
+        "Keys": {
+          "request_id": { "S": "REQ123456" }
+        },
+        "NewImage": {
+          "request_id": { "S": "REQ123456" },
+          "user_id": { "S": "USER987" },
+          "location": { "S": "33.0301,-96.6946" },
+          "event_time": { "S": "2024-07-11T16:30:00Z" },
+          "event_type": { "S": "TOW_REQUEST" },
+          "status": { "S": "OPEN" }
+        },
+        "SequenceNumber": "111",
+        "SizeBytes": 256,
+        "StreamViewType": "NEW_IMAGE"
+      },
+      "eventSourceARN": "arn:aws:dynamodb:us-west-2:123456789012:table/RoadsideRequests/stream/2024-07-11T00:00:00.000"
+    }
+  ]
+}
